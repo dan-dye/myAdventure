@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //UI outlets
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var knightButton: UIButton!
     @IBOutlet weak var wizardButton: UIButton!
@@ -18,28 +19,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var rogueImage: UIImageView!
     @IBOutlet weak var continueButton: UIButton!
     
+    //Aventure instance
     var adventure = AdventureLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.setTitle("Continue", for: .normal)
+        //Updates the ui to start
         updateUI("Continue")
     }
 
+    //Action for three choice buttons. Uses the button's text to determine response
     @IBAction func choicePress(_ sender: UIButton) {
+        //Updates adventure to not wait on a choice
         adventure.choiceWaiting = false
+
         updateUI(sender.titleLabel!.text!)
+        
+        //Updates status of third choice with ending based on current score
         adventure.setWin()
+        //Progresses the game to the next choice
         adventure.progress()
         
     }
     
+    //Action for the continue/play again button
     @IBAction func continuePress(_ sender: UIButton) {
+        //If game is in end state, the UI is reset, else acts as continue
         if(adventure.gameOver) {
             resetUI()
             updateUI(sender.titleLabel!.text!)
         } else {
+            //Updates adventure to be waiting on choice
             adventure.choiceWaiting = true
+            
+            //If this is the last choice, put game in end state
             if(adventure.getCurrent().isEnd) {
                 adventure.endGame()
             }
@@ -47,8 +61,10 @@ class ViewController: UIViewController {
         }
     }
     
+    //Main UI update function
     func updateUI(_ button: String) {
         let choice = adventure.getCurrent()
+        //If game is in end state, update UI with victory/defeat ui
         if(adventure.gameOver) {
             contentLabel.text = choice.getText()
             continueButton.isHidden = false;
@@ -60,6 +76,7 @@ class ViewController: UIViewController {
             wizardButton.isHidden = true;
             rogueButton.isHidden = true;
         } else {
+            //if waiting on a choice display choice text and choice buttons
             if (adventure.choiceWaiting) {
                 contentLabel.text = choice.getText()
                 continueButton.isHidden = true;
@@ -71,6 +88,7 @@ class ViewController: UIViewController {
                 rogueButton.isHidden = false;
 
             } else {
+                //else display continue button and process choice
                 continueButton.isHidden = false;
                 knightImage.isHidden = true;
                 wizardImage.isHidden = true;
@@ -78,7 +96,9 @@ class ViewController: UIViewController {
                 knightButton.isHidden = true;
                 wizardButton.isHidden = true;
                 rogueButton.isHidden = true;
+                //matches the button choice to choice's 3 responses
                 contentLabel.text = matchResponse(button)
+                //if the choice is the killhero choice, kill the relevant hero
                 if(button == choice.getHero()) {
                     adventure.killHero(button)
                     killButton(button)
@@ -90,6 +110,7 @@ class ViewController: UIViewController {
         
     }
     
+    //Updates UI and disables the button for a killed hero
     func killButton(_ name: String) {
         switch name {
         case "Knight":
@@ -112,6 +133,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Matches the button text to the results for a given choice
     func matchResponse(_ name: String) -> String {
         let choice = adventure.getCurrent()
         switch name {
@@ -126,6 +148,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Resets ui for a new game
     func resetUI() {
         adventure.reset()
         knightButton.setTitle("Knight", for: .normal)

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//Choice class. Always has text describing the choice, three responses, a hero name that can die as a result of the choice, and a flag that determines if this choice is the end of the adventure. Also stores the next choice in the adventure.
 class Choice {
     init(_ textNew: String,_ resultOneNew: String,_ resultTwoNew: String,_ resultThreeNew: String,_ nextChoiceNew: Choice?,_ heroDeadNew: String?,_ isEndNew: Bool) {
         text = textNew
