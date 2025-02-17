@@ -31,10 +31,11 @@
                                         <color key="textColor" red="0.024541589317660272" green="0.1790866221876149" blue="0.20803740530303028" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0u-3q-bjp" userLabel="Content">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0u-3q-bjp" userLabel="Content">
                                         <rect key="frame" x="30" y="44.999999999999972" width="330" height="461.33333333333326"/>
                                         <color key="backgroundColor" red="0.79820628022026985" green="0.97059299760491324" blue="1" alpha="0.29961713576158938" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <string key="text">A party of adventurers led by a Knight, a Wizard, and a Rogue make their way through a dungeon and attempt to claim its legendary treasure. They reach a solid stone door with a number of symbols on its surface. Choose a hero to try and get through the door.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -134,10 +135,10 @@
                                 </constraints>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWh-Cl-IwK" userLabel="Continue">
-                                <rect key="frame" x="120" y="660" width="150" height="100"/>
+                                <rect key="frame" x="129.66666666666669" y="720" width="130.66666666666669" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="HhS-2h-b5G"/>
-                                    <constraint firstAttribute="height" constant="100" id="tpO-o0-dWl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="HhS-2h-b5G"/>
+                                    <constraint firstAttribute="height" constant="70" id="tpO-o0-dWl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Continue">
@@ -163,7 +164,7 @@
                             <constraint firstItem="Gcr-HU-pwW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Tyu-39-YQ3"/>
                             <constraint firstItem="dWh-Cl-IwK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vdc-Ux-HIR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5S6-jc-dBc" secondAttribute="trailing" id="jsT-bQ-Wxm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dWh-Cl-IwK" secondAttribute="bottom" constant="50" id="qst-H6-Wq7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dWh-Cl-IwK" secondAttribute="bottom" constant="20" id="qst-H6-Wq7"/>
                             <constraint firstItem="5S6-jc-dBc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xJa-gR-KWX"/>
                         </constraints>
                     </view>
